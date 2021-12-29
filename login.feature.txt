@@ -1,0 +1,57 @@
+#language:pt
+
+Funcionalidade: configurar Produtos
+Como cliente da EBAC-SHOP
+Quero configurar meu produto de acordo com meu tamanho e gosto
+E escolher a quantidade
+Para depois inserir no carrinho
+
+Cenário: Seleções de cor, tamanho e quantidade devem ser obrigatórios
+dado que quando eu escolher meu produto a seleçãp de cor,tamanho e quantidade 
+E Escolher meus produtos deve permitir apenas 10 produtos por vendas 
+Quando eu clicar no botão “limpar” 
+Então deve voltar ao estado original  
+
+
+Funcionalidade: Tela de Login
+Como cliente da EBAC-SHOP
+Quero fazer o login (autenticação) na plataforma  
+Para visualizar meus pedidos
+
+Cenário: Login na Plataforma
+Dado que acesse a pagina de autenticação no portal Ebac-SHOP
+Quando Ao inserir dados válidos
+Então  deve ser direcionado para a tela de checkout
+
+Cenário: Login na Plataforma
+Dado que acesse a pagina de autenticação no portal Ebac-SHOP
+Quando Ao inserir um dos campos inválidos 
+Então deve exibir uma mensagem de alerta “Usuário ou senha inválidos”
+
+
+Funcionalidade: Tela de cadastro - Checkout
+Como cliente da EBAC-SHOP
+Quero concluir meu cadastro   
+Para finalizar minha compra
+
+contexto:
+Dado  que eu acesse a pagina de cadastro 
+
+Cenário:checkout
+Quando eu digitar meus dados  obrigatórios, marcado com asteriscos
+Então deve exibir a mensagem " cadastrado com sucesso"
+
+Cenário:checkout 
+Quando eu digitar meus dados 
+E digitar E_mail inválidos sem @
+Então Sistema deve inserir uma mensagem de erro"E_mail inválido"
+
+
+Esquema do Cenário:checkout
+Quando eu tentar cadastrar com compos vazios 
+Então deve exibir uma mensagem" por favor prencha todos os campos vazios"
+
+
+Exemplos:
+dados|E_mail|mensagem
+|"josé da silva"|"josé@silva"|"Seja Bem vindo!"|
